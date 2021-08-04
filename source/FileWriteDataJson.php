@@ -63,3 +63,4 @@ class FileWriteDataJson
     }
 
 } 
+FileWriteDataJson::writeFromJson();

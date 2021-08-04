@@ -12,6 +12,9 @@ function writeFromJson(event) {
          keyword_name: currentKeyword.value,
          text_context: currentText.value
     };
+    
+
+   
 
     let newObject = JSON.stringify(formData);
     response.open('POST', './source/FileWriteDataJson.php', true);
@@ -24,6 +27,10 @@ function writeFromJson(event) {
     response.onreadystatechange = function() {
         if (response.readyState === 4 && response.status === 200) {
             console.log('request sucess, '+response.status);
+
+            alert('Dados Salvo com sucesso !');
+            currentKeyword.value = '';
+            currentText.value = '';
         }
     }
     response.send('data='+newObject);
