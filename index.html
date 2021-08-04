@@ -22,7 +22,7 @@
 		</div>
 		<div class="popup-content">
 			<span id="innerHTML">Olá, posso te ajudar ? <br/> Informe o termo que deseja encontrar, ex: <br/><br/>
-			1. Informações adicionais <br/> 2. Cross Perfin <br/> 3. Credit rating</span>
+			1. Informações adicionais <br/> 2. Cross Pefin <br/> 3. Credit rating</span>
 		</div>
 	</div>
 	<div class="item-active">
@@ -31,6 +31,94 @@
 			onmouseout="toggleImageMouseOut(this)">
 		</a>
 	</div>
+
+    <script type="text/javascript">
+
+      const button = document.querySelector('.search');
+      const icon  = document.getElementById('icone');
+      const close = document.getElementById('btn-close');
+      var box   = document.getElementsByClassName('box')[0];
+
+	  var span = document.getElementById('innerHTML');
+	  var imagem  = document.getElementById('imagem');
+      
+	  button.addEventListener('click', handleChangedKeyword);
+      icone.addEventListener('click', animate);
+      close.addEventListener('click', hideElement);
+
+      window.addEventListener('keyup', function() {
+		 var keyword = document.getElementById('keyword');
+	  });
+
+      function hideElement(event) {
+         animate(event);
+      }
+      
+      function animate(element) {
+	    // Go ahead and click on the "animate" button while the previous transition is running.
+	    // The transition will begin from the current value of transform and not from 0 or 200px.
+	    if (box._side == "top") {
+	        box._side = "bottom";
+	        box.classList.add('box-active');
+	        transition.begin(box, "transform translateY(700px) translateY(0) 1s", {
+	            beginFromCurrentValue: true
+	        });
+
+	    } else {
+	       box._side = "top";
+	       transition.begin(box, "transform translateX(0) translateY(600px) 0.8s", {
+	            beginFromCurrentValue: true
+	       });
+	    }
+	  }
+
+
+	  function handleChangedKeyword() {
+		  let context = keyword.value;
+		  context = context.toLowerCase();
+		  
+		  fetch('data/keyword.json')
+		    .then(function(response) {
+				if (!response.ok) {
+					throw new Error("HTTP error, status = " + response.status);
+				}
+
+				return response.json();
+		  }).then(function(json) {
+
+			const data =  json.filter(item => item.keyword === context);
+
+			if (data.length == 0 || data === null) {
+				span.innerHTML = ''; 
+				span.innerHTML = messageFromInnerHtm(keyword);
+				return;
+			}
+
+			data.forEach(function(valor) {
+				span.innerHTML = ''; 
+				span.innerHTML = valor.text;
+			});
+
+		  }).catch(err => {
+			span.innerHTML = `Ops ! nenhuma ocorrência foi encontrada para esse termo ${context}`;
+		  });
+	  }
+
+	  function messageFromInnerHtml(term) {
+		  let message = 
+		  `Ops ! nenhuma ocorrência foi encontrada para esse termo <span id="word">${term.value}</span>`;
+		  return message;
+	  }
+
+	  function toggleImageMouseEnter(image) {
+		  image.src = "./public/images/580b57fbd9996e24bc43be11.png";
+	  }
+
+	  function toggleImageMouseOut(image) {
+		  image.src = "./public/images/580b57fbd9996e24bc43be10.png";
+	  }
+
+    </script>
 
     
 </body>
