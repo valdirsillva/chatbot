@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="./public/js/transition.min.js"></script>
+
+</head>
+<body>
+
+    <div class="box flex-animate-bottom" data-id="0">
+		<div>
+			<div class="box-header"><span class="material-icons" id="btn-close">close</span></div>
+			 <div class="flex-item-search">
+				 <input type="text" name="keyword" id="keyword" placeholder="Digite aqui o que deseja" >
+				 <button type="button" class="search">Buscar</button>
+			 </div>
+		</div>
+		<div class="popup-content">
+			<span id="innerHTML">Olá, posso te ajudar ? <br/> Informe o termo que deseja encontrar, ex: <br/><br/>
+			1. Informações adicionais <br/> 2. Cross Perfin <br/> 3. Credit rating</span>
+		</div>
+	</div>
+	<div class="item-active">
+		<a id="icone">
+			<img src="./public/images/580b57fbd9996e24bc43be11.png" id="imagem" onmouseenter="toggleImageMouseEnter(this)"  
+			onmouseout="toggleImageMouseOut(this)">
+		</a>
+	</div>
+
+    
+</body>
+</html>

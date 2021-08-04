@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Asap Condensed", sans-serif;
+  overflow: hidden;
+}
+
+html {
+  /* background: #c7c7c7; */
+}
+
+body {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1.2;
+
+  background-image: url("../images/in-search-of-planet-x-large.gif");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+}
+
+.flex-container {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 100vh;
+
+  /* opacity: 0.4; */
+}
+
+.flex {
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  margin-right: 8%;
+}
+
+.flex-content {
+  display: flex;
+  width: 440px;
+  height: 550px;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+
+  /* margin: 10% auto; */
+
+  box-shadow: 0 4px 12px rgb(39 39 39 / 20%);
+  z-index: 2;
+  border-radius: 0.75rem;
+}
+
+.flex-group > h3 {
+  display: flex;
+
+  color: #4806ca;
+  display: flex;
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin: 1.4rem 0;
+}
+
+.flex-group {
+  margin: 1rem 0;
+}
+
+.flex-group > label {
+  font-size: 1rem;
+  color: #6a6565;
+}
+
+.flex-group > input {
+  width: 100%;
+  height: 50px;
+  margin: 5px 0;
+  padding: 0 0.75rem;
+  border: 1px solid #b2afaf;
+  border-radius: 3px;
+}
+
+.flex-group > input:focus {
+  border: 1px solid #4806ca !important;
+}
+
+.flex-group > textarea {
+  width: 100%;
+  margin: 5px 0;
+
+  border: 1px solid #b2afaf;
+  border-radius: 3px;
+}
+
+.flex-group > .button-cadastrar {
+  width: 100%;
+  background: rgb(72 6 202);
+  padding: 1.5rem 0;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+
+  border: 0;
+}
