@@ -28,9 +28,13 @@ function writeFromJson(event) {
         if (response.readyState === 4 && response.status === 200) {
             console.log('request sucess, '+response.status);
 
-            alert('Dados Salvo com sucesso !');
+            if (formData.keyword_name !== '' && formData.currentText !== '') {
+                alert('Dados Salvo com sucesso !');
+            }
+
             currentKeyword.value = '';
             currentText.value = '';
+    
         }
     }
     response.send('data='+newObject);

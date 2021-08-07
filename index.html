@@ -51,12 +51,13 @@
 	  });
 
       function hideElement(event) {
-         animate(event);
+        animate(event);
+
+		span.innerHTML = ''; 
+		span.innerHTML = valor.text;
       }
       
       function animate(element) {
-	    // Go ahead and click on the "animate" button while the previous transition is running.
-	    // The transition will begin from the current value of transform and not from 0 or 200px.
 	    if (box._side == "top") {
 	        box._side = "bottom";
 	        box.classList.add('box-active');
@@ -73,34 +74,28 @@
 	  }
 
 
-	  function handleChangedKeyword() {
+	  async function handleChangedKeyword() {
 		  let context = keyword.value;
 		  context = context.toLowerCase();
+
+		  const response = await fetch('data/keyword.json');
+		  const result = await response.json();
 		  
-		  fetch('data/keyword.json')
-		    .then(function(response) {
-				if (!response.ok) {
-					throw new Error("HTTP error, status = " + response.status);
-				}
+		  if (!response.ok) {
+			  throw new Error("HTTP error, status = " + response.status);
+		  }
 
-				return response.json();
-		  }).then(function(json) {
+		  const data =  result.filter(item => item.keyword === context);
 
-			const data =  json.filter(item => item.keyword === context);
+		  if (data.length == 0 || data === null) {
+			  span.innerHTML = ''; 
+			  span.innerHTML = messageFromInnerHtml(keyword);
+			  return;
+		  }
 
-			if (data.length == 0 || data === null) {
-				span.innerHTML = ''; 
-				span.innerHTML = messageFromInnerHtm(keyword);
-				return;
-			}
-
-			data.forEach(function(valor) {
-				span.innerHTML = ''; 
-				span.innerHTML = valor.text;
-			});
-
-		  }).catch(err => {
-			span.innerHTML = `Ops ! nenhuma ocorrência foi encontrada para esse termo ${context}`;
+		  data.forEach(function(valor) {
+			   span.innerHTML = ''; 
+			   span.innerHTML = valor.text;
 		  });
 	  }
 
