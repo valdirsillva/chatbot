@@ -1,4 +1,4 @@
-# Mini bot - Assistente Virtual
+# Assistente Virtual
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/valdirsillva/chatbot/blob/main/LICENSE) 
 
 # Sobre o projeto
