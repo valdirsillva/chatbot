@@ -46,9 +46,6 @@ Você pode utilizar onde desejar, no seu site, sistema etc. Poderá customizar d
 # clonar repositório
 git clone https://github.com/valdirsillva/chatbot.git
 
-
-```bash
-
 # Autor
 
 Valdir Silva
