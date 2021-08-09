@@ -5,7 +5,7 @@
 
 criando um mini chatbot com javascript e php
 
-A ideia do mini bot melhorar o atendimento ao cliente no call center que tem como objetivo:
+A ideia do mini bot para dar suporte no atendimento ao cliente no call center.
 
 A aplicação consiste em pesquisar scripts personalizados, roteiros de vendas e cobrança com base em termos informados pelo usuário.  
 
