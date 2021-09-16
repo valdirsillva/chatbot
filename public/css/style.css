@@ -14,14 +14,12 @@ span {
 
 .box {
   width: 370px;
-  min-height: 400px;
+  min-height: 550px;
   max-height: 650px;
   position: fixed;
   background: #e6e6e6;
-
-  bottom: 200px;
-
-  right: 150px;
+  bottom: 70px;
+  right: 260px;
   display: none;
   border-radius: 7px 5px;
   box-shadow: 0px 0px 12px 4px rgb(93 88 88 / 70%);
@@ -110,8 +108,7 @@ span {
 .flex-item-search {
   display: flex;
   position: relative;
-  width: 75%;
-
+  width: 79%;
   margin: 0 auto;
 }
 
@@ -124,7 +121,7 @@ span {
 }
 
 .flex-item-search > button {
-  margin-top: 3.5rem;
+  margin-top: 3.1rem;
   border: 0;
   border-radius: 10px;
   background: #a52c90;

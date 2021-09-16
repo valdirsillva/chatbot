@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Asap Condensed", sans-serif;
+  overflow: hidden;
+}
+
+body {
+  background: #cecece;
+}
+
+.content {
+  justify-content: space-between;
+  display: flex;
+  margin: 1rem 2rem;
+  padding: 0.5rem 1rem;
+
+  flex-direction: column;
+}
+
+.item {
+  background: white;
+  flex-direction: row;
+
+  display: block;
+
+  border: 1px solid #49cc90;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0.75rem;
+}
+
+.form-inline-item {
+  display: inline-block;
+}
+
+.form-inline-item > input,
+.form-inline-item > textarea {
+  border: 0;
+}
+
+.form-inline-item > .title {
+  font-size: 1.75rem;
+  color: #49cc90;
+
+  min-width: 450px;
+}
+
+.form-inline-item > .context {
+  flex: 1;
+}

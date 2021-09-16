@@ -48,10 +48,7 @@ body {
   background: #fff;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
-
-  /* margin: 10% auto; */
-
+  margin-top: 4%;
   box-shadow: 0 4px 12px rgb(39 39 39 / 20%);
   z-index: 2;
   border-radius: 0.75rem;

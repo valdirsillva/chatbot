@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit- Data Json</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./public/css/edit.css">
+
+
+
+</head>
+<body>
+
+    <div class="content">
+
+        
+    </div>
+
+
+    <script>
+
+        
+        window.addEventListener('load', function() {
+            loadDataFromJson();
+        });
+
+
+        async function loadDataFromJson() {
+            const data = await fetch('data/keyword.json');
+            const response = await data.json();
+
+            if (!data.ok) {
+                throw new Error("HTTP error, status = " + response.status);
+            }
+
+            response.forEach(context => {
+                templateString(context);
+            });
+
+        }
+
+
+        function templateString(data) {
+            const { id, keyword, text  } = data;
+
+            let context = `
+            <div class='item'>
+              <div class='form-inline-item'>
+                <input type='text' class='title' value='${keyword}'>
+              </div>
+
+            <div class='form-inline-item'>                  
+                <a class='btn btn-primary'  href='edit.html?id=${id}' >
+                    Editar
+                </a>
+            </div>  
+
+           </div>`;
+
+          document.querySelector('.content').innerHTML += context;
+        };
+
+
+        function handleClickFromSubmit(event) {
+            event.preventDefault();
+
+            alert('data');
+        }
+
+    </script>
+    
+</body>
+</html>
