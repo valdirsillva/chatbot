@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background: #cecece; */
+  background: #cecece;
   font-family: "Calibri", sans-serif;
   font-size: 1.4em;
   font-weight: normal;
@@ -10,6 +10,45 @@ body {
 
 span {
   cursor: pointer;
+}
+
+header {
+  width: 100%;
+  background: #1b191b;
+
+  align-items: center;
+}
+
+.flex-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-menu > ul {
+  width: 75%;
+}
+
+.flex-menu ul li {
+  display: inline;
+  list-style: none;
+  justify-content: space-around;
+
+  margin: auto 10px;
+}
+
+.flex-menu ul li a {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+
+  color: white;
+}
+
+.flex-menu ul li a span {
+  vertical-align: bottom;
+  margin-right: 2px;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .box {

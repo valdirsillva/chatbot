@@ -25,9 +25,51 @@ body {
   background-attachment: fixed;
 }
 
+header {
+  width: 100%;
+  height: 75px;
+  background: #1b191b;
+  flex-direction: column;
+  display: grid;
+
+  align-items: center;
+}
+
+.flex-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-menu > ul {
+  width: 75%;
+}
+
+.flex-menu ul li {
+  display: inline;
+  list-style: none;
+  justify-content: space-around;
+
+  margin: auto 10px;
+}
+
+.flex-menu ul li a {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+
+  color: white;
+}
+
+.flex-menu ul li a span {
+  vertical-align: bottom;
+  margin-right: 2px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
 .flex-container {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   position: absolute;
   height: 100vh;
 
