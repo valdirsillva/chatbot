@@ -52,7 +52,6 @@
 
         function templateString(data) {
            
-
             // Faço uma desestruturação do objeto
             const { id, keyword, text  } = data;
 
@@ -75,14 +74,19 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  <form id="form_${id}" action="source/EditDataJson.php" method="POST">
 
                   <div class="modal-body">
-                    ${text}
+                     <input type="hidden" name="id" value="${id}"/>
+                     <input type="text" name="keyword" value="${keyword}" class="form-control"/>
+                     <textarea name="text" class='form-control' rows="10"> ${text}</textarea>
                   </div>
 
                   <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" name="edit" onclick="handleClickFromSubmit()" >Salvar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   </div>
+                  </form>
                 </div>
               </div>
             </div>`;
@@ -93,41 +97,21 @@
         };
 
        
-        function handleClickFromSubmit(event) {
-            event.preventDefault();
+        function handleClickFromSubmit() {
 
-            alert('data');
+            const response = new XMLHttpRequest();
+            response.open('POST', './source/EditDataJson.php', true);
+
+            response.onreadystatechange = function() {
+               if (response.status == 200) {
+
+                  alert('DEU CERTO SUA EDIÇÃO');
+
+               }
+            }
+            
+            response.send();
         }
-
-
-        //  function addModal(data) {
-        //     let modal =  `
-        //     <div class="modal fade" id="staticBackdrop_${data.id}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        //       <div class="modal-dialog modal-dialog-centered">
-        //         <div class="modal-content">
-        //           <div class="modal-header">
-        //             <h5 class="modal-title" id="staticBackdropLabel">${data.keyword}</h5>
-        //             <button type="button" class="close" data-dismiss="modal${data.id}" aria-label="Close">
-        //               <span aria-hidden="true">&times;</span>
-        //             </button>
-        //           </div>
-
-        //           <div class="modal-body">
-        //             <p>Teste </p>
-        //           </div>
-
-        //           <div class="modal-footer">
-        //             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>`;
-
-
-        //     return modal;
-        // }
-
-
 
     </script>
 

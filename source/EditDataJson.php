@@ -1,17 +1,39 @@
 <?php
 
+header('Content-Type: application/json; charset=utf-8');
+
 
 class EditDataJson 
 {
    private $file = '../data/keyword.json';
 
+   private $dataset = [];
+   private $currentId;
+   
+
    public function edit() 
    {
-       if (isset($_REQUEST['id'])) {
+       if (isset($_REQUEST['edit'])) {
 
-          $request = json_decode($_GET['id'], true);
+           $textId = (int) $_POST['id'];
 
-          $serialize = $this->load();
+           $request = json_decode($_POST['edit'], true);
+           $serialize = $this->load();
+
+           if (!empty($serialize)) {
+            foreach($serialize as $key => $object) {
+                if ($key === $textId) {
+                    $serialize[$key]['keyword'] = $_POST['keyword'];
+                    $serialize[$key]['text'] = $_POST['text'];
+                    array_push($this->dataset, $serialize);
+                }
+            }
+        }
+
+        $data = json_encode($serialize, JSON_UNESCAPED_UNICODE);
+        file_put_contents($this->file, $data,  LOCK_EX);
+        
+        header("Location: ../list.html");
        }
    }
 
