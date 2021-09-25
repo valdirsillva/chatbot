@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit </title>
+
 </head>
 <body>
 
@@ -18,7 +20,7 @@
         function handleLoadPage() {
             const urlParams = new URLSearchParams(window.location.search);
             const param_id = urlParams.get('id');
-            
+
             // alert('Página carregada' + param_id);
             
             const response = new XMLHttpRequest();
@@ -30,9 +32,7 @@
             }
 
             response.send();
-
         }
-
 
 
         window.addEventListener('load', handleLoadPage);

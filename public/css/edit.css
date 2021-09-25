@@ -14,11 +14,11 @@ body {
 
 .content {
   justify-content: space-between;
-  display: flex;
+  display: contents;
   margin: 1rem 2rem;
   padding: 0.5rem 1rem;
 
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .item {

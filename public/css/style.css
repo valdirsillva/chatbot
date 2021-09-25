@@ -14,7 +14,8 @@ span {
 
 header {
   width: 100%;
-  background: #1b191b;
+  /*background: #1b191b;*/
+  background: #0d39b9e0;
 
   align-items: center;
 }

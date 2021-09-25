@@ -18,10 +18,13 @@
 </head>
 <body>
 
-    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="content">
 
-        
-    </div>
+                </div>
+            </div>            
+        </div>
 
 
     <script>
@@ -48,33 +51,90 @@
 
 
         function templateString(data) {
+           
+
+            // Faço uma desestruturação do objeto
             const { id, keyword, text  } = data;
 
             let context = `
-            <div class='item'>
-              <div class='form-inline-item'>
-                <input type='text' class='title' value='${keyword}'>
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-subtitle mb-2 text-muted">${keyword}</h5>
+                    <p class="card-text">${text}</p>
+                    <a href="#" class="card-link" data-toggle="modal" data-target="#staticBackdrop_${id}">Card link</a>
+                    <a href="edit.html?id=${id}" class="card-link">Another link</a>
+                  </div>
+                </div>
+
+                 <div class="modal fade" id="staticBackdrop_${id}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">${keyword}</h5>
+                    <button type="button" class="close" data-dismiss="modal${id}" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    ${text}
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
               </div>
+            </div>`;
 
-            <div class='form-inline-item'>                  
-                <a class='btn btn-primary'  href='edit.html?id=${id}' >
-                    Editar
-                </a>
-            </div>  
+            document.querySelector('.content').innerHTML += context;
 
-           </div>`;
-
-          document.querySelector('.content').innerHTML += context;
+            // addModal(data);
         };
 
-
+       
         function handleClickFromSubmit(event) {
             event.preventDefault();
 
             alert('data');
         }
 
+
+        //  function addModal(data) {
+        //     let modal =  `
+        //     <div class="modal fade" id="staticBackdrop_${data.id}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        //       <div class="modal-dialog modal-dialog-centered">
+        //         <div class="modal-content">
+        //           <div class="modal-header">
+        //             <h5 class="modal-title" id="staticBackdropLabel">${data.keyword}</h5>
+        //             <button type="button" class="close" data-dismiss="modal${data.id}" aria-label="Close">
+        //               <span aria-hidden="true">&times;</span>
+        //             </button>
+        //           </div>
+
+        //           <div class="modal-body">
+        //             <p>Teste </p>
+        //           </div>
+
+        //           <div class="modal-footer">
+        //             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>`;
+
+
+        //     return modal;
+        // }
+
+
+
     </script>
-    
+
 </body>
 </html>
+
+
+
+
+

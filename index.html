@@ -49,30 +49,30 @@
 
     <script type="text/javascript">
 
-      const button = document.querySelector('.search');
-      const icon  = document.getElementById('icone');
-      const close = document.getElementById('btn-close');
-      var box   = document.getElementsByClassName('box')[0];
+    const button = document.querySelector('.search');
+    const icon = document.getElementById('icone');
+    const close = document.getElementById('btn-close');
+    var box = document.getElementsByClassName('box')[0];
 
 	  var span = document.getElementById('innerHTML');
-	  var imagem  = document.getElementById('imagem');
+	  var imagem = document.getElementById('imagem');
       
 	  button.addEventListener('click', handleChangedKeyword);
       icone.addEventListener('click', animate);
       close.addEventListener('click', hideElement);
 
       window.addEventListener('keyup', function() {
-		 var keyword = document.getElementById('keyword');
+		   var keyword = document.getElementById('keyword');
 	  });
 
-      function hideElement(event) {
+    function hideElement(event) {
         animate(event);
 
 		span.innerHTML = ''; 
 		span.innerHTML = valor.text;
-      }
+    }
       
-      function animate(element) {
+    function animate(element) {
 	    if (box._side == "top") {
 	        box._side = "bottom";
 	        box.classList.add('box-active');
@@ -101,9 +101,11 @@
 		  }
 
 		  const data =  result.filter(item => item.keyword === context);
-
+          
 		  if (data.length == 0 || data === null) {
 			  span.innerHTML = ''; 
+			  notifyAudio(data);
+
 			  span.innerHTML = messageFromInnerHtml(keyword);
 			  return;
 		  }
@@ -112,11 +114,15 @@
 			   span.innerHTML = ''; 
 			   span.innerHTML = valor.text;
 		  });
+		  
+		  notifyAudio(data);
 	  }
 
 	  function messageFromInnerHtml(term) {
-		  let message = 
-		  `Ops ! nenhuma ocorrência foi encontrada para esse termo <span id="word">${term.value}</span>`;
+	  	let termo = term.value;
+
+		let message = 
+		  `Ops ! Ainda não sei responder sobre isso: <span id="word"> ${term.value} </span> tente pesquisar por: ` + termo.toUpperCase();
 		  return message;
 	  }
 
@@ -127,6 +133,15 @@
 	  function toggleImageMouseOut(image) {
 		  image.src = "./public/images/580b57fbd9996e24bc43be10.png";
 	  }
+
+
+	  function notifyAudio(data) {
+		  if (data.length !== 0) {
+			 return  new Audio('./public/audio/206875133.mp3').play();
+		  }
+		  return new Audio('./public/audio/notification.mp3').play();
+	  }
+
 
     </script>
 
