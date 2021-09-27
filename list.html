@@ -7,16 +7,32 @@
     <title>Edit- Data Json</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="./public/css/edit.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./public/css/edit.css?111">
+
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css">
+
 
 
 
 </head>
 <body>
+     
+        <header>
+          <nav class="flex-menu">
+            <ul>
+              <li><a href="create.html">
+                <span class="material-icons">add</span>Cadastrar</a>
+              </li>
+              <li><a href="list.html">
+                <span class="material-icons">question_answer</span>Diálogos</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
 
         <div class="container">
             <div class="row">
@@ -44,6 +60,7 @@
             }
 
             response.forEach(context => {
+  
                 templateString(context);
             });
 
@@ -56,12 +73,12 @@
             const { id, keyword, text  } = data;
 
             let context = `
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 17rem;">
                   <div class="card-body">
-                    <h5 class="card-subtitle mb-2 text-muted">${keyword}</h5>
-                    <p class="card-text">${text}</p>
-                    <a href="#" class="card-link" data-toggle="modal" data-target="#staticBackdrop_${id}">Card link</a>
-                    <a href="edit.html?id=${id}" class="card-link">Another link</a>
+                    <h3 class="card-subtitle mb-5 text-muted">${keyword.toLowerCase()}</h3>
+                    <p class="card-text" >${sliceFromText(text)}  </p>
+                    <a href="#" class="card-link" data-toggle="modal" data-target="#staticBackdrop_${id}">Editar</a>
+                    <a href="edit.html?id=${id}" class="card-link">Ver Mais</a>
                   </div>
                 </div>
 
@@ -78,7 +95,7 @@
 
                   <div class="modal-body">
                      <input type="hidden" name="id" value="${id}"/>
-                     <input type="text" name="keyword" value="${keyword}" class="form-control"/>
+                     <input type="text" name="keyword" value="${keyword}" class="form-control"/> 
                      <textarea name="text" class='form-control' rows="10"> ${text}</textarea>
                   </div>
 
@@ -91,11 +108,18 @@
               </div>
             </div>`;
 
+
             document.querySelector('.content').innerHTML += context;
 
-            // addModal(data);
         };
+        
 
+        function sliceFromText(text) {
+            // Pego somente uma fatia do texto
+            let slice =  text.substr(0, 100);
+            // Faço um contact com [ ... ]
+            return slice.concat('...');
+        }
        
         function handleClickFromSubmit() {
 
@@ -104,14 +128,13 @@
 
             response.onreadystatechange = function() {
                if (response.status == 200) {
-
-                  alert('DEU CERTO SUA EDIÇÃO');
-
+                   alert('DEU CERTO SUA EDIÇÃO');
                }
             }
-            
             response.send();
         }
+
+
 
     </script>
 
