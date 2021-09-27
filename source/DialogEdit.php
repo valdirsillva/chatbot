@@ -3,7 +3,10 @@
 header('Content-Type: application/json; charset=utf-8');
 
 
-class EditDataJson 
+
+
+
+class DialogEdit 
 {
    private $file = '../data/keyword.json';
 
@@ -46,5 +49,5 @@ class EditDataJson
 }
 
 
-$edit = new EditDataJson;
+$edit = new DialogEdit;
 $edit->edit();

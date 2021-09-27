@@ -17,7 +17,7 @@ function writeFromJson(event) {
    
 
     let newObject = JSON.stringify(formData);
-    response.open('POST', './source/FileWriteDataJson.php', true);
+    response.open('POST', './source/DialogSave', true);
     response.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     response.setRequestHeader("Cache-Control", "no-cache, no-store max-age=0");
