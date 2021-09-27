@@ -18,8 +18,8 @@
 				<li><a href="create.html">
 					<span class="material-icons">add</span>Cadastrar</a>
 				</li>
-				<li><a href="edit.html">
-					<span class="material-icons">edit</span>Editar</a>
+				<li><a href="list.html">
+					<span class="material-icons">question_answer</span>Diálogos</a>
 				</li>
 			</ul>
 		</nav>
@@ -54,16 +54,26 @@
     const close = document.getElementById('btn-close');
     var box = document.getElementsByClassName('box')[0];
 
-	  var span = document.getElementById('innerHTML');
-	  var imagem = document.getElementById('imagem');
+	var span = document.getElementById('innerHTML');
+	var imagem = document.getElementById('imagem');
       
-	  button.addEventListener('click', handleChangedKeyword);
-      icone.addEventListener('click', animate);
-      close.addEventListener('click', hideElement);
+	button.addEventListener('click', handleChangedKeyword);
+    icone.addEventListener('click', animate);
+    close.addEventListener('click', hideElement);
 
-      window.addEventListener('keyup', function() {
-		   var keyword = document.getElementById('keyword');
-	  });
+    window.addEventListener('keyup', function(e) {
+		var keyword = document.getElementById('keyword');
+	});
+
+
+	document.getElementById('keyword').addEventListener("keyup", function(e) {
+        let keypress = e.which || e.keyCode;
+		var keyword = document.getElementById('keyword');
+		
+		if (keypress === 13) 
+			handleChangedKeyword();
+		
+	});
 
     function hideElement(event) {
         animate(event);
@@ -82,7 +92,7 @@
 
 	    } else {
 	       box._side = "top";
-	       transition.begin(box, "transform translateX(0) translateY(600px) 0.8s", {
+	       transition.begin(box, "transform translateX(0) translateY(650px) 0.4s", {
 	            beginFromCurrentValue: true
 	       });
 	    }
