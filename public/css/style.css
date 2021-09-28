@@ -198,24 +198,15 @@ header {
   display: none;
 } */
 
-.popup-content > span:hover {
-  display: none;
-
-  animation: mover 0.2s;
-  transition: width 2s;
-  transition-delay: 3s;
-}
-
-.dialog-transition:hover {
-  display: none;
+/* .dialog-transition:hover {
   width: 0px;
 
   animation: mover 0.2s;
   transition: width 2s;
   transition-delay: 3s;
-}
+} */
 
-@keyframes mover {
+/* @keyframes mover {
   from {
     height: 0px;
   }
@@ -223,7 +214,7 @@ header {
   to {
     height: 176px;
   }
-}
+} */
 
 @keyframes animatebottom {
   from {
