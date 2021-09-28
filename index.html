@@ -49,31 +49,49 @@
 
     <script type="text/javascript">
 
+	const OPTIONS_MENU = `Olá, eu sou o Will, posso te ajudar ? <br/> 
+		    Informe o termo que deseja encontrar, ex: <br/><br/>
+			1. Inteligência Artificial <br/> 
+			2. Engenharia de Software <br/> 
+			3. Criptografia`;
+
+    
+	const icon = document.getElementById('icone');
     const button = document.querySelector('.search');
-    const icon = document.getElementById('icone');
     const close = document.getElementById('btn-close');
+	const inputOnKeyUp = document.getElementById('keyword');
     var box = document.getElementsByClassName('box')[0];
 
 	var span = document.getElementById('innerHTML');
 	var imagem = document.getElementById('imagem');
       
+	icone.addEventListener('click', animate);   
 	button.addEventListener('click', handleChangedKeyword);
-    icone.addEventListener('click', animate);
     close.addEventListener('click', hideElement);
+	
+	inputOnKeyUp.addEventListener("keyup", onChangeKeypress);
+	inputOnKeyUp.addEventListener("keyup", onFieldIsEmpty);
 
     window.addEventListener('keyup', function(e) {
 		var keyword = document.getElementById('keyword');
 	});
 
-
-	document.getElementById('keyword').addEventListener("keyup", function(e) {
-        let keypress = e.which || e.keyCode;
+	function onChangeKeypress(e) {
+		let keypress = e.which || e.keyCode;
 		var keyword = document.getElementById('keyword');
 		
 		if (keypress === 13) 
 			handleChangedKeyword();
+	}
+
+	function onFieldIsEmpty(e) {
 		
-	});
+		const field = e.target.value;
+		if (field.length <= 0 ) {
+			span.innerHTML = '';
+		    span.innerHTML = OPTIONS_MENU;
+		}
+	}
 
     function hideElement(event) {
         animate(event);
@@ -99,7 +117,7 @@
 	  }
 
 
-	  async function handleChangedKeyword() {
+	async function handleChangedKeyword() {
 		  let context = keyword.value;
 		  context = context.toLowerCase();
 
@@ -126,31 +144,30 @@
 		  });
 		  
 		  notifyAudio(data);
-	  }
+	}
 
-	  function messageFromInnerHtml(term) {
+	function messageFromInnerHtml(term) {
 	  	let termo = term.value;
 
 		let message = 
 		  `Ops ! Ainda não sei responder sobre isso: <span id="word"> ${term.value} </span> tente pesquisar por: ` + termo.toUpperCase();
 		  return message;
-	  }
+	}
 
-	  function toggleImageMouseEnter(image) {
+	function toggleImageMouseEnter(image) {
 		  image.src = "./public/images/580b57fbd9996e24bc43be11.png";
-	  }
+	}
 
-	  function toggleImageMouseOut(image) {
+	function toggleImageMouseOut(image) {
 		  image.src = "./public/images/580b57fbd9996e24bc43be10.png";
-	  }
+	}
 
-
-	  function notifyAudio(data) {
+	function notifyAudio(data) {
 		  if (data.length !== 0) {
 			 return  new Audio('./public/audio/206875133.mp3').play();
 		  }
 		  return new Audio('./public/audio/notification.mp3').play();
-	  }
+	}
 
 
     </script>

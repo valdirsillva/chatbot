@@ -30,6 +30,16 @@ body {
   border-radius: 0.5rem;
   margin: 0.5rem 0.75rem;
 }
+.card {
+  margin: 0.75rem 0.25rem;
+}
+.card-border-top {
+  margin: -7px 0px;
+  border-top: 0.6rem solid #1cc88a !important;
+  border-radius: 6px;
+  position: relative;
+  z-index: -1;
+}
 
 .form-inline-item {
   display: inline-block;
