@@ -85,16 +85,26 @@ header {
   top: 8px;
   right: 20px;
   position: absolute;
-  z-index: 1;
 }
+
+.box-footer {
+  padding: 30px 0;
+  position: absolute;
+  background: #e63888;
+  width: 370px;
+  bottom: 0px;
+  border-radius: 0px 5px;
+
+  z-index: -1;
+}
+
 .popup-content {
   display: flex;
   position: relative;
   justify-content: center;
   align-items: flex-end;
-  margin: 0px auto;
+  margin: 40px auto;
   color: #656060;
-
   line-height: 1.5;
 }
 
@@ -103,7 +113,6 @@ header {
   justify-content: center;
   padding: 25px;
   align-items: center;
-  /* text-align: justify; */
 }
 
 .popup-content > span {
@@ -142,13 +151,13 @@ header {
 }
 
 .flex-item-search {
-  display: flex;
-  position: relative;
-  width: 79%;
-  margin: 0 auto;
+  background-position: 0 auto;
+  bottom: 0.25rem;
+  /* margin: 0.25rem 0.2rem; */
+  align-items: center;
 }
 
-.flex-item-search > input {
+.flex-item-search > #search > input {
   border: 1px solid #cabfbf;
   flex: 1;
   padding: 12px 6px;
@@ -156,16 +165,25 @@ header {
   margin-top: 3rem;
 }
 
-.flex-item-search > button {
+.flex-item-search > #search > button {
   margin-top: 3.1rem;
   border: 0;
   border-radius: 10px;
-  background: #a52c90;
+  background: #244bbb;
   color: #fff;
   border-radius: 8px;
   margin-left: 7px;
   cursor: pointer;
   padding: 0.5rem !important;
+}
+
+#search {
+  display: flex;
+  position: fixed;
+  left: 0.875rem;
+  bottom: 0.5rem;
+  justify-content: center;
+  width: 93%;
 }
 
 #word {
@@ -174,6 +192,37 @@ header {
   font-weight: 800;
   display: contents;
   text-decoration: underline;
+}
+
+/* #innerHTML:hover {
+  display: none;
+} */
+
+.popup-content > span:hover {
+  display: none;
+
+  animation: mover 0.2s;
+  transition: width 2s;
+  transition-delay: 3s;
+}
+
+.dialog-transition:hover {
+  display: none;
+  width: 0px;
+
+  animation: mover 0.2s;
+  transition: width 2s;
+  transition-delay: 3s;
+}
+
+@keyframes mover {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 176px;
+  }
 }
 
 @keyframes animatebottom {
