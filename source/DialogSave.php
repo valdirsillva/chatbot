@@ -1,8 +1,9 @@
 <?php
 
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
 
-header("Cache-Control: no-cache, must-revalidate");
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Content-Type: application/xml; charset=utf-8");
 
 
@@ -23,7 +24,7 @@ class DialogSave
            
             $request = json_decode($_POST['data'], true);
 
-            $serialize = FileWriteDataJson::load();
+            $serialize = self::load();
 
             if (!empty($serialize)) {
                 foreach($serialize as $key => $object) {
