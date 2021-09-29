@@ -36,7 +36,7 @@ class DialogSave
             $dataKeyword =  array(
                 array(
                     "id" => ++self::$currentId,
-                    "keyword" =>  $request['keyword_name'],
+                    "keyword" => $request['keyword_name'],
                     "text" => $request['text_context']
                 )
             );

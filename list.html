@@ -50,7 +50,7 @@
 
 
         async function loadDataFromJson() {
-            const data = await fetch('data/keyword.json');
+            const data = await fetch('data/keyword.json', {cache: "no-cache"});
             const response = await data.json();
 
             if (!data.ok) {
@@ -66,16 +66,15 @@
             }
         };
         
-        function sliceFromText(text) {
-            // Pego somente uma fatia do texto
-            let slice =  text.substr(0, 100);
-            // Faço um contact com [ ... ]
-            return slice.concat('...');
-        }
+      
        
         function handleClickFromSubmit() {
             const response = new XMLHttpRequest();
             response.open('POST', './source/DialogEdit.php', true);
+
+            response.setRequestHeader("Cache-Control", "no-cache, no-store max-age=0");
+            response.setRequestHeader("Expires", "Tue, 01 Jan 1980 1:00:00 GMT");
+            response.setRequestHeader("Pragma", "no-cache");
 
             response.onreadystatechange = function() {
                if (response.status == 200) {
@@ -85,17 +84,27 @@
             response.send();
         }
 
+       
+
+        function sliceFromText(text) {
+              // Pego somente uma fatia do texto
+              let slice =  text.substr(0, 100);
+              // Faço um contact com [ ... ]
+              return slice.concat('...');
+        }
+          
 
         function onLoadModal(data) {
           // Faço uma desestruturação do objeto
           const { id, keyword, text  } = data;
+
           
           return `
               <div class="card" style="width: 17rem;">
                 <span class="card-border-top"></span>
                   <div class="card-body">
-                    <h3 class="card-subtitle mb-5 text-muted">${keyword.toLowerCase()}</h3>
-                    <p class="card-text" >${sliceFromText(text)}  </p>
+                    <h3 class="card-subtitle mb-5 text-muted">${keyword}</h3>
+                    <p class="card-text" >${text}  </p>
                     <a href="#" class="card-link" data-toggle="modal" data-target="#staticBackdrop_${id}">
                       <span class="material-icons" title="Editar">mode_edit</span>
                     </a>
@@ -167,7 +176,7 @@
                       </div>
 
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="delete" onclick="onDelete()" >Deletar</button>
+                        <button type="submit" class="btn btn-primary" name="delete"  >Deletar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </form>
@@ -176,6 +185,7 @@
               </div>`;
         }
 
+   
     </script>
 
 </body>

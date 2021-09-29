@@ -46,7 +46,7 @@ class DialogEdit
    {
        $current = file_get_contents($this->file);
       
-       return json_decode($current, true);;
+       return json_decode($current, true);
    }
 }
 
