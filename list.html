@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit- Data Json</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -78,7 +79,7 @@
 
             response.onreadystatechange = function() {
                if (response.status == 200) {
-                   alert('DEU CERTO SUA EDIÇÃO');
+                   confirm('Diálogo editado com sucesso.');
                }
             }
             response.send();
@@ -95,8 +96,16 @@
                   <div class="card-body">
                     <h3 class="card-subtitle mb-5 text-muted">${keyword.toLowerCase()}</h3>
                     <p class="card-text" >${sliceFromText(text)}  </p>
-                    <a href="#" class="card-link" data-toggle="modal" data-target="#staticBackdrop_${id}">Editar</a>
-                    <a href="edit.html?id=${id}" data-toggle="modal" data-target="#modal-details_${id}" class="card-link">Ver Mais</a>
+                    <a href="#" class="card-link" data-toggle="modal" data-target="#staticBackdrop_${id}">
+                      <span class="material-icons" title="Editar">mode_edit</span>
+                    </a>
+                    <a href="details.php?id=${id}" data-toggle="modal" data-target="#modal-details_${id}" class="card-link">
+                      <span class="material-icons" title="Ver mais">visibility</span>
+                    </a>
+
+                    <a href="delete.php?id=${id}" data-toggle="modal" data-target="#modal-delete_${id}" class="card-link">
+                      <span class="material-icons" title="Deletar">delete</span>
+                    </a>
                   </div>
               </div>
 
