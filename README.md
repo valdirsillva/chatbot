@@ -28,8 +28,12 @@ Ao passar o mouse sobre o robo, a imagem será trocada, ao clicar abre um popup 
 Exemplo de utilização do app, digitando um termo e recebendo uma resposta.
 
 
-![Web 3](https://github.com/valdirsillva/chatbot/blob/main/assets/tela_para_cadastro_%20no_app.png)
+![Web 3](https://github.com/valdirsillva/chatbot/blob/main/assets/tela_cadastro_dialogo_app.png)
 Tela de cadastro dos dados, devendo informar palavras as chaves e o conteúdo correspondente.
+
+![Web 4](https://github.com/valdirsillva/chatbot/blob/main/assets/tela_para_ver_listar_editar_e_excluir_um_dialogo.png)
+Tela para listar, visualizar um diálogo, editar e excluir.
+
 
 
 # Tecnologias utilizadas
