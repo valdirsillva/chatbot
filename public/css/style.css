@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500;600;700&display=swap");
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #cecece;
-  font-family: "Calibri", sans-serif;
-  font-size: 1.4em;
-  font-weight: normal;
+  text-decoration: none;
+  font-family: "Asap Condensed", sans-serif;
+  overflow: hidden;
 }
 
 span {
@@ -13,14 +13,15 @@ span {
 }
 
 header {
+  
   width: 100%;
-  /*background: #1b191b;*/
-  background: #0d39b9e0;
+  height: 75px;
+  background: #4806ca;
+  flex-direction: column;
+  display: grid;
+
   align-items: center;
-
-  height: 78px;
-
-  margin-bottom: 5%;
+  
 }
 
 .flex-menu {

@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500;600;700&display=swap");
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  /* overflow: hidden; */
-}
-
-body {
+  font-family: "Asap Condensed", sans-serif;
+  overflow-x: hidden;
   background: #cecece;
 }
+
+
+nav {
+  margin-top: 10px; 
+}
+
 
 .content {
   justify-content: space-between;

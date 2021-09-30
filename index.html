@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
     <title>Mini Chatbot</title>
-    <link rel="stylesheet" type="text/css" href="./public/css/style.css?13">
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css?14">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="./public/js/transition.min.js"></script>
 
@@ -24,6 +23,7 @@
 				<li><a href="create.html">
 					<span class="material-icons">add</span>Cadastrar</a>
 				</li>
+				
 				<li><a href="list.html">
 					<span class="material-icons">question_answer</span>Diálogos</a>
 				</li>
@@ -96,7 +96,6 @@
 	}
 
 	function onFieldIsEmpty(e) {
-		
 		const field = e.target.value;
 		if (field.length <= 0 ) {
 			span.innerHTML = '';
@@ -131,7 +130,6 @@
 	async function handleChangedKeyword() {
 		  let context = keyword.value;
 		  context = context.toLowerCase();
-
 		  const response = await fetch('data/keyword.json', {cache: "reload"});
 
 		  const result = await response.json();
