@@ -17,7 +17,57 @@
 </head>
 <body>
 
-	<header>
+
+
+	<form action="">
+      <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+
+    </form>
+
+
+    <script>
+
+
+    	
+
+    	document.querySelector('[name="favcolor"]').addEventListener('change', getBackground);
+
+    	function getBackground(e) {
+    		 const response = new XMLHttpRequest();
+    		
+    		let color = {
+    			background: e.target.value
+    		};
+
+    		 let newObject = JSON.stringify(color);
+
+
+    	
+    		response.open('POST', './components/Layout.php', true);
+    		response.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    	
+		    response.setRequestHeader("Cache-Control", "no-cache, no-store max-age=0");
+		    response.setRequestHeader("Expires", "Tue, 01 Jan 1980 1:00:00 GMT");
+		    response.setRequestHeader("Pragma", "no-cache");
+
+    		response.onreadystatechange = function() {
+    			if (response.readyState === 4 && response.status === 200) {
+    				
+    				let color = response.responseText;
+
+    			    for(var x in color) {
+    			    	console.log(color);
+    			    }
+
+    			}
+    		}
+    		 response.send('color='+newObject);
+
+    	}
+    	
+    </script>
+
+	<!-- <header>
 		<nav class="flex-menu">
 			<ul>
 				<li><a href="create.html">
@@ -30,7 +80,7 @@
 			</ul>
 		</nav>
 	</header>
-
+ -->
 	
 
     <div class="box flex-animate-bottom" data-id="0">
@@ -160,7 +210,7 @@
 	  	let termo = term.value;
 
 		let message = 
-		  `Ops ! Ainda não sei responder sobre isso: <span id="word"> ${term.value} </span> tente pesquisar por: ` + termo.toUpperCase();
+		  `Ops ! Ainda não sei responder sobre o termo: <span id="word"> ${term.value} </span> tente pesquisar por: ` + termo.toUpperCase();
 		  return message;
 	}
 

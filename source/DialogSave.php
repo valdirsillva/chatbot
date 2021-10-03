@@ -23,13 +23,12 @@ class DialogSave
         if (isset($_REQUEST)) {
            
             $request = json_decode($_POST['data'], true);
-
             $serialize = self::load();
 
             if (!empty($serialize)) {
                 foreach($serialize as $key => $object) {
                     array_push(self::$keyword, $object);
-                    self::$currentId = $key;
+                    self::$currentId = $serialize[$key]['id'];
                 }
             }
 

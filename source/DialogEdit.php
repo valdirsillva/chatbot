@@ -10,7 +10,7 @@ header("Content-Type: application/xml; charset=utf-8");
 
 class DialogEdit 
 {
-   private $file = '../data/keyword.json';
+   public $file = '../data/keyword.json';
 
    private $dataset = [];
    private $currentId;
@@ -27,7 +27,7 @@ class DialogEdit
 
            if (!empty($serialize)) {
             foreach($serialize as $key => $object) {
-                if ($key === $textId) {
+                if ($serialize[$key]['id'] === $textId) {
                     $serialize[$key]['keyword'] = $_POST['keyword'];
                     $serialize[$key]['text'] = $_POST['text'];
                     array_push($this->dataset, $serialize);
