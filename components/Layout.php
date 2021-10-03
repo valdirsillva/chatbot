@@ -25,8 +25,7 @@ class Layout
 
 	public function loadJSON() 
     {
-    	
-        return json_encode( file_get_contents($this->filename) );
+        return file_get_contents($this->filename);
     }
 
 }

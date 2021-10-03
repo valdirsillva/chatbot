@@ -10,7 +10,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <title>Mini Chatbot</title>
-    <link rel="stylesheet" type="text/css" href="./public/css/style.css?14">
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css?1400">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="./public/js/transition.min.js"></script>
 
@@ -20,8 +20,8 @@
 
 
 	<form action="">
-      <input type="color" id="favcolor" name="favcolor" value="#ff0000">
-
+		<label for="">Selecione um tema:</label>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
     </form>
 
 
@@ -39,35 +39,45 @@
     			background: e.target.value
     		};
 
-    		 let newObject = JSON.stringify(color);
+    		let newObject = JSON.stringify(color);
 
-
-    	
     		response.open('POST', './components/Layout.php', true);
     		response.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    	
 		    response.setRequestHeader("Cache-Control", "no-cache, no-store max-age=0");
 		    response.setRequestHeader("Expires", "Tue, 01 Jan 1980 1:00:00 GMT");
 		    response.setRequestHeader("Pragma", "no-cache");
 
     		response.onreadystatechange = function() {
     			if (response.readyState === 4 && response.status === 200) {
-    				
-    				let color = response.responseText;
-
-    			    for(var x in color) {
-    			    	console.log(color);
-    			    }
-
+    				let data = JSON.parse(response.responseText);
+					for(var x of data) {
+			            let header = document.querySelector('#header');
+			            header.style.background = x.background;
+    	            }
     			}
     		}
     		 response.send('color='+newObject);
-
     	}
+
+
+		async function setTheme() {
+			const response = await fetch(
+				'components/styles/main.json', 
+			    {cache: "reload"}
+			);
+			
+			const result = await response.json();
+
+			for(var x of result) {
+				document.querySelector('#header').style.background = x.background;
+			}
+		}
+
+		setTheme();
     	
     </script>
 
-	<!-- <header>
+	<header id="header">
 		<nav class="flex-menu">
 			<ul>
 				<li><a href="create.html">
@@ -80,7 +90,7 @@
 			</ul>
 		</nav>
 	</header>
- -->
+
 	
 
     <div class="box flex-animate-bottom" data-id="0">
