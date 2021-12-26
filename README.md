@@ -43,11 +43,6 @@ Tela de cadastro dos dados, devendo informar palavras as chaves e o conteúdo co
 Você pode utilizar onde desejar, no seu site, sistema etc. Poderá customizar de acordo com a necessidade, o sistema criará uma base de dados no formato json e esses dados serão utilizados na aplicação.
 
 ```bash
-# clonar repositório
-git clone https://github.com/valdirsillva/chatbot.git
 
 # Autor
-
 Valdir Silva
-
-https://www.linkedin.com/in/valdir-c-silva/

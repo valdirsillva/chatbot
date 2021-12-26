@@ -26,7 +26,7 @@ class DialogDelete
  
          $data = json_encode($serialize, JSON_UNESCAPED_UNICODE);
          file_put_contents($this->file, $data,  LOCK_EX);
-         header("Location: ../list.html");
+         header("Location: ../list.html?action=list");
         }
     }
 

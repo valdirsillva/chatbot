@@ -1,14 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@500;600;700&display=swap');
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Asap Condensed", sans-serif;
-  overflow-x: hidden;
-  background: #cecece;
-}
+  font-family: "Asap", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
 
+  color: #7c8893;
+  /*overflow: hidden;*/
+
+  background: #e3e1e1;
+}
 
 nav {
   margin-top: 10px; 
