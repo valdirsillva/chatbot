@@ -4,7 +4,7 @@
 
 header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Content-Type: application/xml; charset=utf-8");
+header("Content-Type: application/json");
 
 
 
@@ -44,9 +44,7 @@ class DialogEdit
 
    public function load() 
    {
-       $current = file_get_contents($this->file);
-      
-       return json_decode($current, true);
+       return  file_get_contents($this->file);
    }
 }
 

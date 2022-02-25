@@ -32,9 +32,7 @@ class DialogDelete
 
     public function load() 
     {
-        $current = file_get_contents($this->file);
-      
-        return json_decode($current, true);
+        return  file_get_contents($this->file);
     }
 }
 

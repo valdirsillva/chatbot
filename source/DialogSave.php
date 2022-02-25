@@ -4,7 +4,7 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-header("Content-Type: application/xml; charset=utf-8");
+header("Content-Type: application/json");
 
 
 class DialogSave 
@@ -57,9 +57,7 @@ class DialogSave
 
     public static function load() 
     {
-        $current = file_get_contents(self::$file);
-       
-        return json_decode($current, true);;
+        return  file_get_contents(self::$file);
     }
 
 } 
